@@ -93,6 +93,7 @@ app.get("/api/sodas", (req, res) => {
 });
 
 app.post("/api/sodas", (req, res) => {
+    console.log("Body: " + req.body.sugar);
     const result = validateSoda(req.body);
 
     if (result.error) {
@@ -116,11 +117,11 @@ app.post("/api/sodas", (req, res) => {
 const validateSoda = (soda) => {
     const schema = Joi.object({
         _id: Joi.allow(""),
+        ubTypes: Joi.allow(""),
         name: Joi.string().min(3).required(),
-        sugar: Joi.string().required(),
-        calories: Joi.string().required(),
-        oz: Joi.string().required(),
-        subTypes: Joi.allow("")
+        sugar: Joi.string().min(1).required(),
+        calories: Joi.string().min(1).required(),
+        oz: Joi.string().min(1).required()
     });
 
     return schema.validate(soda);

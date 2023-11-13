@@ -71,13 +71,17 @@ const addSoda = async(e) => {
     if (form._id.value == -1) {
         formData.delete("_id");
         formData.append("subTypes", getTypes());
-
-        console.log(...formData);
+        formData.delete("name");
+        formData.delete("sugar");
+        formData.delete("calories");
+        formData.delete("oz");
+        formData.delete("subTypes");
 
         response = await fetch("/api/sodas", {
             method: "POST",
             body: formData
         });
+        console.log("fetched");
     }
 
     if (response.status != 200) {
@@ -107,13 +111,13 @@ const addSoda = async(e) => {
     }
 
     response = await response.json();
-    resetFrom();
+    resetForm();
     document.querySelector(".dialog").classList.add("transparent");
     showSodas();
 };
 
 const getTypes = () => {
-    const inputs = document.querySelectorAll("type-boxes input");
+    const inputs = document.querySelectorAll("#type-boxes input");
     let types = [];
 
     inputs.forEach((input) => {
@@ -142,6 +146,8 @@ const addType = (e) => {
     const section = document.getElementById("type-boxes");
     const input = document.createElement("input");
     input.type = "text";
+    input.id = "subTypes";
+    input.name = "subTypes";
     section.append(input);
 }
 
