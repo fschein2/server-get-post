@@ -92,7 +92,7 @@ app.get("/api/sodas", (req, res) => {
     res.send(sodas);
 });
 
-app.post("/api/sodas", (req, res) => {
+app.post("/api/sodas", upload.single("img"), (req, res) => {
     console.log("Body: " + req.body.sugar);
     const result = validateSoda(req.body);
 
@@ -100,7 +100,7 @@ app.post("/api/sodas", (req, res) => {
         res.status(400).send(result.error.details[0].message);
         return;
     }
-
+console.log(req.body.subTypes);
     const soda = {
         _id: sodas.length + 1,
         name: req.body.name,
@@ -117,7 +117,7 @@ app.post("/api/sodas", (req, res) => {
 const validateSoda = (soda) => {
     const schema = Joi.object({
         _id: Joi.allow(""),
-        ubTypes: Joi.allow(""),
+        subTypes: Joi.allow(""),
         name: Joi.string().min(3).required(),
         sugar: Joi.string().min(1).required(),
         calories: Joi.string().min(1).required(),

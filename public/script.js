@@ -71,11 +71,6 @@ const addSoda = async(e) => {
     if (form._id.value == -1) {
         formData.delete("_id");
         formData.append("subTypes", getTypes());
-        formData.delete("name");
-        formData.delete("sugar");
-        formData.delete("calories");
-        formData.delete("oz");
-        formData.delete("subTypes");
 
         response = await fetch("/api/sodas", {
             method: "POST",
@@ -91,6 +86,7 @@ const addSoda = async(e) => {
             resultDiv.innerHTML = "Failed to post soda";
             i++;
             if (i > 3) {
+                resultDiv.innerHTML = "";
                 clearInterval(errorMessage);
             }
 
@@ -104,6 +100,7 @@ const addSoda = async(e) => {
             resultDiv.innerHTML = "Successfully posted soda";
             i++;
             if (i > 3) {
+                resultDiv.innerHTML = "";
                 clearInterval(successMessage);
             }
 
@@ -146,8 +143,6 @@ const addType = (e) => {
     const section = document.getElementById("type-boxes");
     const input = document.createElement("input");
     input.type = "text";
-    input.id = "subTypes";
-    input.name = "subTypes";
     section.append(input);
 }
 
