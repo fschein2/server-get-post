@@ -1,5 +1,128 @@
+/* Structure */
+
 body {
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #E3E4E3;
+    color: #6E1019;
+}
+
+#title {
+    padding-left: 10px;
+}
+
+#soda-div section {
+    padding: 10px;
+    margin: 10px;
+    background: #083F72;
+    border-radius: 5px;
+}
+
+#soda-info {
+    padding: 10px;
+    margin: 10px;
+    background: #083F72;
+    border-radius: 5px;
+    color: #D1882E;
+}
+
+#information h2 {
+    padding-left: 15px;
+}
+
+#add-link {
+    font-size: 2.5em;
+    color: #6E1019;
+    padding-left: 10px;
+}
+
+#add-soda {
+    padding: 10px;
+    margin: 10px;
+    background: #083F72;
+    border-radius: 5px;
+}
+
+
+/* Form */
+
+label {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+#type-p input {
+    margin-top: 5px;
+}
+
+#add-soda {
+    color: #E2BE92;
+    font-size: 0.75em;
     text-align: center;
+}
+
+#add-title {
+    color: #D1882E;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* The Close Button */
+
+.close {
+    color: #E2BE92;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: #6E1019;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Typography */
+
+#main-nav-items {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    color: #D1882E;
+}
+
+.hidden {
+    display: none;
+}
+
+.transparent {
+    opacity: 0;
+}
+
+
+/* Larger Resolutions */
+
+@media (min-width: 600px) {
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .two-columns div {
+        flex: 1;
+    }
+    #soda-div section {
+        width: 25%;
+        text-align: center;
+    }
+    #add-soda {
+        max-width: 30%;
+        margin: auto;
+    }
 }

@@ -19,7 +19,7 @@ let sodas = [{
         sugar: "41",
         calories: "150",
         oz: "12",
-        subBrands: [
+        subTypes: [
             "Diet Pepsi",
             "Pepsi Zero",
             "Pepsi Cherry"
@@ -31,7 +31,7 @@ let sodas = [{
         sugar: "46",
         calories: "170",
         oz: "12",
-        subBrands: [
+        subTypes: [
             "Diet Mtn Dew",
             "Mtn Dew Baja Blast",
             "Mtn Dew Code Red",
@@ -44,7 +44,7 @@ let sodas = [{
         sugar: "39",
         calories: "140",
         oz: "12",
-        subBrands: [
+        subTypes: [
             "Diet Coke",
             "Coke Zero",
             "Vanilla Coke"
@@ -56,7 +56,7 @@ let sodas = [{
         sugar: "39",
         calories: "150",
         oz: "12",
-        subBrands: [
+        subTypes: [
             "Diet Dr Pepper",
             "Dr Pepper & Cream Soda",
             "Dr Pepper Strawberries and Cream",
@@ -68,8 +68,8 @@ let sodas = [{
         name: "A&W Root Beer",
         sugar: "45",
         calories: "170",
-        oz: "120",
-        subBrands: [
+        oz: "12",
+        subTypes: [
             "Diet A&W Root Beer",
             "A&W Cream Soda",
             "Diet A&W Cream Soda"
@@ -81,7 +81,7 @@ let sodas = [{
         sugar: "51",
         calories: "190",
         oz: "12",
-        subBrands: [
+        subTypes: [
             "Sprite Zero",
             "Sprite Cranberry"
         ],
@@ -106,7 +106,7 @@ app.post("/api/sodas", (req, res) => {
         sugar: req.body.sugar,
         calories: req.body.calories,
         oz: req.body.oz,
-        subBrands: req.body.subBrands.split(",")
+        subTypes: req.body.subTypes.split(",")
     }
 
     sodas.push(soda);
@@ -120,7 +120,7 @@ const validateSoda = (soda) => {
         sugar: Joi.string().required(),
         calories: Joi.string().required(),
         oz: Joi.string().required(),
-        subBrands: Joi.allow("")
+        subTypes: Joi.allow("")
     });
 
     return schema.validate(soda);
