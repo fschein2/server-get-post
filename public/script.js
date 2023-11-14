@@ -79,9 +79,10 @@ const addSoda = async(e) => {
         console.log("fetched");
     }
 
+    let i = 0;
+
     if (response.status != 200) {
         const errorMessage = setInterval( () => {
-            let i = 0;
             const resultDiv = document.getElementById("result");
             resultDiv.innerHTML = "Failed to post soda";
             i++;
@@ -95,7 +96,6 @@ const addSoda = async(e) => {
 
     if (response.status = 200) {
         const successMessage = setInterval( () => {
-            let i = 0;
             const resultDiv = document.getElementById("result");
             resultDiv.innerHTML = "Successfully posted soda";
             i++;
